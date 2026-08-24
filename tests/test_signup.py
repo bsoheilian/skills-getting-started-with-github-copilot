@@ -5,7 +5,7 @@ def test_signup_adds_new_participant_successfully(client):
     # Arrange
     activity_name = "Chess Club"
     new_email = "new.student@mergington.edu"
-    endpoint = f"/activities/{activity_name}/signup"
+    endpoint = f"/activities/{activity_name.replace(' ', '%20')}/signup"
 
     # Act
     response = client.post(endpoint, params={"email": new_email})
