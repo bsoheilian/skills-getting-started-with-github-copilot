@@ -5,7 +5,7 @@ def test_unregister_removes_existing_participant_successfully(client):
     # Arrange
     activity_name = "Chess Club"
     participant_email = activities[activity_name]["participants"][0]
-    endpoint = f"/activities/{activity_name}/participants/{participant_email}"
+    endpoint = f"/activities/{activity_name.replace(' ', '%20')}/participants/{participant_email}"
 
     # Act
     response = client.delete(endpoint)
